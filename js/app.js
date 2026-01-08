@@ -1,11 +1,47 @@
 document.getElementById("resumeForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const get = (id) => document.getElementById(id).value;
+  const get = (id) => document.getElementById(id).value.trim();
 
-  const resume = `
+  const clearErrors = () => {
+    document.querySelectorAll(".error-message").forEach((el) => el.remove());
+  };
+
+  const showError = (id, msg) => {
+    const el = document.getElementById(id);
+    const error = document.createElement("div");
+    error.className = "error-message";
+    error.textContent = msg;
+    el.insertAdjacentElement("afterend", error);
+  };
+
+  clearErrors();
+
+  let valid = true;
+
+  if (!get("name")) {
+    showError("name", "Name is required");
+    valid = false;
+  }
+  if (!get("phone")) {
+    showError("phone", "Phone number is required");
+    valid = false;
+  }
+  if (!get("email")) {
+    showError("email", "Email is required");
+    valid = false;
+  }
+  if (!get("objective")) {
+    showError("objective", "Objective is required");
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  const resumeHTML = `
     <h1>${get("name")}</h1>
     <p>${get("phone")} | ${get("email")}</p>
+    ${get("linkedin") ? `<p>LinkedIn: ${get("linkedin")}</p>` : ""}
 
     <div class="resume-section">
       <h3>Objective</h3>
@@ -15,9 +51,9 @@ document.getElementById("resumeForm")?.addEventListener("submit", function (e) {
     <div class="resume-section">
       <h3>Education</h3>
       <ul>
-        <li>${get("edu10")}</li>
-        <li>${get("edu12")}</li>
-        <li>${get("degree")}</li>
+        ${get("edu10") ? `<li>${get("edu10")}</li>` : ""}
+        ${get("edu12") ? `<li>${get("edu12")}</li>` : ""}
+        ${get("degree") ? `<li>${get("degree")}</li>` : ""}
       </ul>
     </div>
 
@@ -49,8 +85,19 @@ document.getElementById("resumeForm")?.addEventListener("submit", function (e) {
     }
   `;
 
-  document.getElementById("resumeOutput").innerHTML = resume;
-  document
-    .getElementById("resumeOutput")
-    .scrollIntoView({ behavior: "smooth" });
+  const output = document.getElementById("resumeOutput");
+  output.innerHTML = resumeHTML;
+  output.scrollIntoView({ behavior: "smooth" });
+
+  document.getElementById("downloadResume").onclick = () => {
+    html2pdf()
+      .from(output)
+      .set({
+        margin: 0.5,
+        filename: "Resume.pdf",
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+      })
+      .save();
+  };
 });

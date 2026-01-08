@@ -1,40 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <title>Resume Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
+    <!-- NAVBAR -->
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <div class="navbar">
+        <div class="logo">Resume<span>Gen</span></div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="template.html">Resume Builder</a></li>
+        </ul>
+      </div>
     </nav>
 
-    <div class="container hero">
-      <div>
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-content">
         <h1>Create Your Professional Resume</h1>
-        <p>Build ATS-friendly resumes in minutes using beautiful templates.</p>
-        <a href="#templates" class="btn">Choose Template</a>
-      </div>
-      <img
-        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-        alt="Resume"
-      />
-    </div>
-
-    <div class="container" id="templates">
-      <h2>Select a Template</h2>
-
-      <div class="templates">
-        <div class="template-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" />
-          <h3>Template 1</h3>
-          <a href="template.html" class="btn">Use Template</a>
+        <p>
+          Build a clean, ATS-friendly resume in minutes using our simple and
+          professional resume template.
+        </p>
+        <div class="hero-buttons">
+          <a href="template.html" class="btn primary">Create Resume</a>
+          <a href="resume.html" class="btn secondary">View Sample</a>
         </div>
       </div>
-    </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+          alt="Resume Generator"
+        />
+      </div>
+    </header>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <h2>Why Use Our Resume Generator?</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <h3>Single Professional Template</h3>
+          <p>
+            One carefully designed resume template that works for freshers and
+            experienced professionals.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>ATS-Friendly Design</h3>
+          <p>Structured layout optimized to pass Applicant Tracking Systems.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Quick & Easy</h3>
+          <p>
+            Fill your details once and generate a polished resume instantly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEMPLATE (CENTERED CARD) -->
+    <section class="templates">
+      <h2>Our Resume Template</h2>
+      <p class="section-desc">
+        A clean, modern template designed to highlight your skills and
+        experience.
+      </p>
+
+      <div class="template-single">
+        <div class="template-card">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
+            alt="Resume Template"
+          />
+          <h3>Professional Resume Template</h3>
+          <p>
+            Suitable for all job roles, including IT, non-IT, freshers, and
+            experienced candidates.
+          </p>
+          <ul class="template-points">
+            <li>✔ Clean & readable layout</li>
+            <li>✔ Mobile & print friendly</li>
+            <li>✔ Industry-standard sections</li>
+          </ul>
+          <a href="template.html" class="btn primary">Use This Template</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <section class="steps">
+      <h2>How It Works</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span>1</span>
+          <h3>Enter Details</h3>
+          <p>Fill in your personal, education, and skill details.</p>
+        </div>
+
+        <div class="step-card">
+          <span>2</span>
+          <h3>Preview Resume</h3>
+          <p>Instantly preview your resume in a professional layout.</p>
+        </div>
+
+        <div class="step-card">
+          <span>3</span>
+          <h3>Download</h3>
+          <p>Download your resume in a clean, printable format.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2026 Resume Generator. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
