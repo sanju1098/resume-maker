@@ -90,6 +90,11 @@ document.getElementById("resumeForm")?.addEventListener("submit", function (e) {
   output.scrollIntoView({ behavior: "smooth" });
 
   document.getElementById("downloadResume").onclick = () => {
+    if (typeof html2pdf === "undefined") {
+      alert("PDF library not loaded.");
+      return;
+    }
+
     html2pdf()
       .from(output)
       .set({
