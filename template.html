@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template 1</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <form id="resumeForm">
+        <h2>Personal Details</h2>
+        <label>Name *</label>
+        <input required id="name" />
+
+        <label>Phone *</label>
+        <input required id="phone" />
+
+        <label>Email *</label>
+        <input required type="email" id="email" />
+
+        <label>Photo URL</label>
+        <input id="photo" />
+
+        <label>LinkedIn URL</label>
+        <input id="linkedin" />
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob" />
+
+        <h2>Objective *</h2>
+        <textarea required id="objective"></textarea>
+
+        <h2>Education</h2>
+        <label>10th (School, Year, %)</label>
+        <input id="edu10" />
+
+        <label>12th (School, Year, %)</label>
+        <input id="edu12" />
+
+        <label>Degree (College, Year, %)</label>
+        <input id="degree" />
+
+        <h2>Technical Skills</h2>
+        <input id="skills" placeholder="HTML, CSS, JavaScript" />
+
+        <h2>Projects</h2>
+        <textarea id="projects"></textarea>
+
+        <h2>Certificates</h2>
+        <textarea id="certificates"></textarea>
+
+        <h2>Internships</h2>
+        <textarea id="internships"></textarea>
+
+        <button type="submit">Generate Resume</button>
+      </form>
+
+      <div id="resumeOutput" class="resume"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
