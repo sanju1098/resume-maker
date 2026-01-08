@@ -274,10 +274,33 @@ footer {
 .about-section {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
+  align-items: center;
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.about-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.about-content {
+  flex: 2;
+  text-align: left;
+}
+
+.about-image img {
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .about-content h2 {
@@ -285,15 +308,24 @@ footer {
   margin-bottom: 15px;
 }
 
-.about-content p {
-  line-height: 1.7;
-  color: #444;
-  margin-bottom: 15px;
+.about-content h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
 }
 
-.about-image img {
-  width: 100%;
-  border-radius: 12px;
+.about-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.about-content ul li {
+  margin-bottom: 10px;
 }
 
 /* INFO CARDS */
@@ -444,6 +476,18 @@ footer {
   font-size: 0.9rem;
   color: red;
   margin-bottom: 10px;
+}
+
+/* Highlight fields with errors */
+.error-field {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 
 /* MOBILE */

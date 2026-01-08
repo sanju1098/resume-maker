@@ -5,6 +5,9 @@ document.getElementById("resumeForm")?.addEventListener("submit", function (e) {
 
   const clearErrors = () => {
     document.querySelectorAll(".error-message").forEach((el) => el.remove());
+    document
+      .querySelectorAll(".error-field")
+      .forEach((el) => el.classList.remove("error-field"));
   };
 
   const showError = (id, msg) => {
@@ -12,31 +15,42 @@ document.getElementById("resumeForm")?.addEventListener("submit", function (e) {
     const error = document.createElement("div");
     error.className = "error-message";
     error.textContent = msg;
+    el.classList.add("error-field");
     el.insertAdjacentElement("afterend", error);
   };
 
   clearErrors();
 
   let valid = true;
+  let firstErrorField = null;
 
   if (!get("name")) {
     showError("name", "Name is required");
     valid = false;
+    if (!firstErrorField) firstErrorField = document.getElementById("name");
   }
   if (!get("phone")) {
     showError("phone", "Phone number is required");
     valid = false;
+    if (!firstErrorField) firstErrorField = document.getElementById("phone");
   }
   if (!get("email")) {
     showError("email", "Email is required");
     valid = false;
+    if (!firstErrorField) firstErrorField = document.getElementById("email");
   }
   if (!get("objective")) {
     showError("objective", "Objective is required");
     valid = false;
+    if (!firstErrorField)
+      firstErrorField = document.getElementById("objective");
   }
 
-  if (!valid) return;
+  if (!valid) {
+    firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+    firstErrorField.focus();
+    return;
+  }
 
   const resumeHTML = `
     <h1>${get("name")}</h1>
