@@ -90,19 +90,10 @@ document.getElementById("resumeForm")?.addEventListener("submit", function (e) {
   output.scrollIntoView({ behavior: "smooth" });
 
   document.getElementById("downloadResume").onclick = () => {
-    if (typeof html2pdf === "undefined") {
-      alert("PDF library not loaded.");
-      return;
-    }
-
-    html2pdf()
-      .from(output)
-      .set({
-        margin: 0.5,
-        filename: "Resume.pdf",
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
-      })
-      .save();
+    const blob = new Blob([resumeHTML], { type: "text/html" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "Resume.html";
+    link.click();
   };
 });
